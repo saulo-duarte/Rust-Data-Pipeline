@@ -25,6 +25,11 @@ impl ColumnBuilder {
         self
     }
 
+    pub fn nullify_invalid(mut self) -> Self {
+        self.on_invalid = OnInvalid::Nullify;
+        self
+    }
+
     pub fn to_col_spec(self) -> ColSpec {
         ColSpec {
             name: self.name,
